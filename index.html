@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive to-do list app with task filters and local storage.">
+  <title>TaskFlow | To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="TaskFlow home"><span class="brand-mark">✓</span> TaskFlow</a>
+      <span class="top-label">YOUR DAILY SPACE</span>
+    </header>
+
+    <main class="app">
+      <section class="welcome">
+        <p class="eyebrow">MAKE TODAY COUNT</p>
+        <h1>Your plans, <span>under control.</span></h1>
+        <p class="subtitle">A little progress each day adds up to big results.</p>
+      </section>
+
+      <section class="summary" aria-label="Task summary">
+        <div class="summary-card"><span class="summary-label">TOTAL TASKS</span><strong id="total-count">0</strong></div>
+        <div class="summary-card"><span class="summary-label">ACTIVE</span><strong id="active-count">0</strong></div>
+        <div class="summary-card"><span class="summary-label">COMPLETED</span><strong id="completed-count">0</strong></div>
+      </section>
+
+      <section class="task-panel" aria-labelledby="task-heading">
+        <div class="panel-heading">
+          <div><p class="eyebrow">YOUR WORKSPACE</p><h2 id="task-heading">My tasks</h2></div>
+          <span class="today-badge" id="today-label">TODAY</span>
+        </div>
+
+        <form id="task-form" class="task-form">
+          <label class="sr-only" for="task-input">New task</label>
+          <input id="task-input" type="text" maxlength="120" placeholder="What do you need to do?" autocomplete="off" required>
+          <button type="submit" class="add-button">＋ Add task</button>
+        </form>
+
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="Filter tasks">
+            <button type="button" class="filter-button active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-button" data-filter="active" aria-pressed="false">Active</button>
+            <button type="button" class="filter-button" data-filter="completed" aria-pressed="false">Completed</button>
+          </div>
+          <button type="button" id="clear-completed" class="clear-button">Clear completed</button>
+        </div>
+
+        <ul id="task-list" class="task-list" aria-live="polite" aria-label="Tasks"></ul>
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon">✦</div>
+          <h3>Nothing here just yet</h3>
+          <p>Add a task above and make your day count.</p>
+        </div>
+        <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <footer class="app-footer">
+        <span>Small steps. Real progress.</span>
+        <span>Saved automatically in this browser</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
